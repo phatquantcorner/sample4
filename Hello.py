@@ -15,14 +15,20 @@
 import streamlit as st
 from streamlit.logger import get_logger
 
-LOGGER = get_logger(__name__)
+import pandas as pd
 
+LOGGER = get_logger(__name__)
 
 def run():
     st.set_page_config(
         page_title="Hello",
         page_icon="👋",
     )
+    url = 'https://raw.githubusercontent.com/phatquantcorner/quantcorner_lseg_hackathon/main/dataset.csv'
+    df = pd.read_csv(url, index_col=0)
+
+    st.write(df)
+
 
     st.write("# Welcome to Streamlit! 👋")
 
